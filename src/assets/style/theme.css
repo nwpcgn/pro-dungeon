@@ -1,12 +1,4 @@
-@import 'tailwindcss';
-@plugin '@tailwindcss/forms';
-@plugin 'daisyui';
-
-@plugin 'daisyui/theme' {
-	name: 'nwp-light';
-	default: true;
-	prefersdark: false;
-	color-scheme: 'light';
+:root {
 	--color-base-100: oklch(91.637% 0.034 90.515);
 	--color-base-200: oklch(88.272% 0.049 91.774);
 	--color-base-300: oklch(84.133% 0.065 90.856);
@@ -28,11 +20,11 @@
 	--color-error: oklch(63% 0.237 25.331);
 	--color-error-content: oklch(93% 0.032 17.717);
 	--radius-selector: 0.25rem;
-	--radius-field: 0.25rem;
+	--radius-field: 0rem;
 	--radius-box: 0.5rem;
-	--size-selector: 0.1875rem;
-	--size-field: 0.1875rem;
-	--border: 1px;
+	--size-selector: 0.21875rem;
+	--size-field: 0.21875rem;
+	--border: 2px;
 	--depth: 0;
 	--noise: 0;
 }
@@ -65,34 +57,50 @@
 	--font-family-mono: 'JetBrains Mono', monospace;
 	--font-family-nwp: 'Electrolize', sans-serif;
 }
-@import './assets/style/theme.css';
-body {
-	width: 100vw;
-	height: 100vh;
-	padding: 0;
-	margin: 0;
-	display: flex;
-	flex-direction: column;
-	overflow-x: hidden;
-	overflow-y: hidden;
-}
-:popover-open {
-	max-width: 480px;
-	min-height: 200px;
-	position: absolute;
-	inset: unset;
-	bottom: 1rem;
-	right: 1rem;
-	margin: 0;
+
+@layer base, utils, components, componentsNwp;
+
+@layer base {
+	html {
+		font-size: 100%;
+	}
+	body {
+		font-family: var(--font-family-mono);
+		/* 	font-family: var(--font-family-nwp); */
+		font-size: 16px;
+		line-height: 1.5;
+	}
+	body {
+		width: 100vw;
+		height: 100vh;
+		padding: 0;
+		margin: 0;
+		display: flex;
+		flex-direction: column;
+		overflow-x: hidden;
+		overflow-y: hidden;
+	}
 }
 
-:popover-open {
-	padding: 0 10px;
-	border-radius: 10px;
-	background-color: transparent;
+@layer components {
+	body {
+		background-color: var(--color-base-100);
+		color: var(--color-base-content);
+		font-family: 'Electrolize', sans-serif;
+		font-size: 16px;
+		line-height: 1.5;
+	}
+
+	button,
+	a,
+	label,
+	input,
+	summary {
+		cursor: pointer;
+	}
 }
 
-::backdrop {
-	background-color: rgba(0, 0, 0, 0.5);
-	backdrop-filter: blur(1px);
-}
+@import './css/_typo.css';
+@import './css/_page.css';
+@import './css/_helper.css';
+@import './css/_utils.css';

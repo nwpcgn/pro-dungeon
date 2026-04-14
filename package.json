@@ -19,6 +19,7 @@
 		"@tailwindcss/vite": "^4.2.2",
 		"@tsconfig/svelte": "^5.0.8",
 		"@types/node": "^24",
+		"daisyui": "^5.5.19",
 		"eslint": "^10.2.0",
 		"eslint-config-prettier": "^10.1.8",
 		"eslint-plugin-svelte": "^3.17.0",
@@ -32,5 +33,9 @@
 		"typescript": "~6.0.2",
 		"typescript-eslint": "^8.58.1",
 		"vite": "^8.0.4"
+	},
+	"dependencies": {
+		"@svelte-router/core": "^1.0.7",
+		"rot-js": "^2.2.1"
 	}
 }

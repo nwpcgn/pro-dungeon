@@ -1,7 +1,7 @@
-import tailwindcss from '@tailwindcss/vite';
+import tailwindcss from '@tailwindcss/vite'
 import path from 'path'
-import { defineConfig } from 'vite';
-import { svelte } from '@sveltejs/vite-plugin-svelte';
+import { defineConfig } from 'vite'
+import { svelte } from '@sveltejs/vite-plugin-svelte'
 
 export default defineConfig({
 	plugins: [tailwindcss(), svelte()],
@@ -13,4 +13,4 @@ export default defineConfig({
 		}
 	},
 	base: '/pro-dungeon/' // ← anpassen!
-});
+})

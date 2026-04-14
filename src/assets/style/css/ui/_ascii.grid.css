@@ -1,0 +1,22 @@
+@layer componentsNwp {
+	.ascii-grid {
+		font-family: monospace;
+		line-height: 1;
+		white-space: pre;
+		font-size: var(--ascii, 16px);
+		padding: 0;
+		margin: 0;
+	}
+
+	.ascii-grid span {
+		display: inline-flex;
+		width: 1em;
+		aspect-ratio: 1 / 1;
+		justify-content: center;
+		align-items: center;
+		font-size: var(--ascii, 16px);
+		text-align: center;
+		vertical-align: middle;
+		/* color: #ddd; */
+	}
+}
