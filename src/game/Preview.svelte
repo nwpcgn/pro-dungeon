@@ -1,47 +1,61 @@
 <script lang="ts">
-	import { TILE_DEFS } from './tiles'
-	let { map, player, tileSize = 4 } = $props()
+	import { TILE_DEFS, TILE } from './dungeon'
+	let { map, startPosition, maxPx = 200 } = $props()
 	let canvas: HTMLCanvasElement = $state()
-	let ctx: CanvasRenderingContext2D = $state()
+	// let ctx: CanvasRenderingContext2D = $state()
 
-	function drawMap() {
+	function draw(tiles) {
 		if (!canvas) return
-		ctx = canvas.getContext('2d')
-		if (!ctx) return
+		const W = tiles[0].length,
+			H = tiles.length
 
-		console.log({ map })
-		const width = map[0].length,
-			height = map.length
+		const tileSize = Math.max(
+			1,
+			Math.min(Math.floor(maxPx / W), Math.floor(maxPx / H))
+		)
+		const cw = W * tileSize,
+			ch = H * tileSize
+		canvas.width = cw
+		canvas.height = ch
+		canvas.style.width = cw + 'px'
+		canvas.style.height = ch + 'px'
 
-		canvas.width = width * tileSize
-		canvas.height = height * tileSize
-
-		for (let x = 0; x < width; x++) {
-			for (let y = 0; y < height; y++) {
-				const target = map[y][x]
-				const { color, pre } = TILE_DEFS[target]
-				if (color) {
-					ctx.fillStyle = pre
-				} else if (target === 1) {
-					ctx.fillStyle = 'black'
-				} else {
-					ctx.fillStyle = 'lightgrey'
+		const ctx = canvas.getContext('2d')
+		for (let y = 0; y < H; y++) {
+			for (let x = 0; x < W; x++) {
+				const t = tiles[y][x]
+				const { pre, color, char } = TILE_DEFS[t]
+				let fill = '#111'
+				if (pre) {
+					fill = pre
 				}
+				ctx.fillStyle = fill
 				ctx.fillRect(x * tileSize, y * tileSize, tileSize, tileSize)
 			}
 		}
-		ctx.fillStyle = player.color
-		ctx.fillRect(
-			player.x * tileSize - 2,
-			player.y * tileSize - 2,
-			tileSize + 4,
-			tileSize + 4
-		)
+
+		// draw start (green dot)
+		if (tileSize >= 2) {
+			ctx.fillStyle = '#1d9e75'
+			ctx.fillRect(
+				startPosition.x * tileSize,
+				startPosition.y * tileSize,
+				tileSize,
+				tileSize
+			)
+		}
+
+		let floorCount = 0
+		for (let y = 0; y < H; y++)
+			for (let x = 0; x < W; x++) if (tiles[y][x] !== TILE.WALL) floorCount++
+		const total = W * H
 	}
 
 	$effect(() => {
-		drawMap(canvas)
+		if (canvas) {
+			draw(map)
+		}
 	})
 </script>
 
-<canvas class="border" bind:this={canvas}></canvas>
+<canvas class="border border-black" bind:this={canvas}></canvas>
