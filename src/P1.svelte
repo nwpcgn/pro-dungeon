@@ -54,4 +54,4 @@
 	})
 </script>
 
-<canvas class="border bg-black" bind:this={canvas}></canvas>
+<canvas class=" bg-black" bind:this={canvas}></canvas>

@@ -1,0 +1,30 @@
+[
+	{
+		"slug": "lobby",
+		"name": "Lobby",
+		"href": "/",
+		"icon": "game-lobby",
+		"hidden": false
+	},
+	{
+		"slug": "settings",
+		"name": "Settings",
+		"href": "/settings",
+		"icon": "game-settings",
+		"hidden": false
+	},
+	{
+		"slug": "dungeon",
+		"name": "Dungeon",
+		"href": "/dungeon",
+		"icon": "game-dungeon",
+		"hidden": false
+	},
+	{
+		"slug": "arena",
+		"name": "Arena",
+		"href": "/arena",
+		"icon": "game-arena",
+		"hidden": true
+	}
+]

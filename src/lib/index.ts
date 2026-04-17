@@ -26,46 +26,35 @@ export { default as Portal } from './components/Portal.svelte'
 
 export const NAV = [
 	{
-		href: '/',
-		name: 'Lobby',
-		icon: 'icon-home',
-		hidden: false,
 		slug: 'lobby',
-		id: 0
+		name: 'Lobby',
+		href: '/',
+		icon: 'game-lobby',
+		hidden: false
 	},
 	{
-		href: '/dun/1',
-		name: 'Dungeon',
-		icon: 'icon-community',
-		hidden: false,
-		slug: 'dungeon',
-		id: 1
-	},
-	{
-		href: '/dun/2',
-		name: 'Arena',
-		icon: 'icon-building',
-		hidden: false,
-		slug: 'arena',
-		id: 2
-	},
-	{
-		href: '/dun/3',
-		name: 'Battle',
-		icon: 'icon-sword',
-		hidden: false,
-		slug: 'battle',
-		id: 3
-	},
-	{
-		href: '/dun/4',
-		name: 'Settings',
-		icon: 'icon-bank',
-		hidden: false,
 		slug: 'settings',
-		id: 4
+		name: 'Settings',
+		href: '/settings',
+		icon: 'game-settings',
+		hidden: false
+	},
+	{
+		slug: 'dungeon',
+		name: 'Dungeon',
+		href: '/dungeon',
+		icon: 'game-dungeon',
+		hidden: false
+	},
+	{
+		slug: 'arena',
+		name: 'Arena',
+		href: '/arena',
+		icon: 'game-arena',
+		hidden: true
 	}
 ]
+
 export const LORE = [
 	{
 		slide: 1,
