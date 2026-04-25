@@ -1,0 +1,123 @@
+.inventory {
+	font-family: monospace;
+	background: oklch(16% 0 0);
+	border: 1px solid oklch(22% 0 0);
+	padding: 0.75rem;
+	min-width: 180px;
+	color: oklch(92% 0 0);
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
+}
+
+.section-label {
+	font-size: 0.6rem;
+	letter-spacing: 0.15em;
+	text-transform: uppercase;
+	color: oklch(68.5% 0.169 237.323);
+	border-bottom: 1px solid oklch(22% 0 0);
+	padding-bottom: 0.4rem;
+}
+
+.empty {
+	font-size: 0.75rem;
+	color: oklch(35% 0 0);
+	text-align: center;
+	padding: 0.5rem 0;
+}
+
+ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	display: flex;
+	flex-direction: column;
+	gap: 0.2rem;
+}
+
+.item-row {
+	width: 100%;
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+	padding: 0.3rem 0.5rem;
+	background: oklch(18% 0 0);
+	border: 1px solid oklch(24% 0 0);
+	color: inherit;
+	cursor: pointer;
+	text-align: left;
+	transition: border-color 0.1s;
+}
+
+.item-row.selected {
+	background: oklch(22% 0.02 257);
+	border-color: oklch(37.2% 0.044 257.287);
+}
+
+.item-char {
+	width: 1rem;
+	text-align: center;
+	font-size: 1rem;
+}
+.item-name {
+	flex: 1;
+	font-size: 0.78rem;
+	color: oklch(82% 0 0);
+}
+.item-count {
+	font-size: 0.7rem;
+	color: oklch(87.9% 0.169 91.605);
+	background: oklch(22% 0 0);
+	padding: 0 0.3rem;
+}
+
+.detail {
+	margin-top: 0.5rem;
+	padding: 0.5rem;
+	background: oklch(14% 0 0);
+	border: 1px solid oklch(20% 0 0);
+	min-height: 70px;
+}
+
+.detail-header {
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+	margin-bottom: 0.5rem;
+}
+
+.detail-name {
+	font-size: 0.82rem;
+	font-weight: bold;
+}
+
+.detail-empty {
+	font-size: 0.72rem;
+	color: oklch(35% 0 0);
+}
+
+.actions {
+	display: flex;
+	flex-direction: column;
+	gap: 0.3rem;
+}
+
+.btn-use {
+	padding: 0.3rem;
+	font-size: 0.72rem;
+	cursor: pointer;
+	font-family: monospace;
+	background: oklch(22% 0.04 142);
+	border: 1px solid oklch(0.7588 0.2948 142.51);
+	color: oklch(0.7588 0.2948 142.51);
+}
+
+.btn-drop {
+	padding: 0.3rem;
+	font-size: 0.72rem;
+	cursor: pointer;
+	font-family: monospace;
+	background: oklch(18% 0.02 27);
+	border: 1px solid oklch(35% 0.1 27);
+	color: oklch(57.7% 0.245 27.325);
+}

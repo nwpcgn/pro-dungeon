@@ -1,8 +1,6 @@
 <script lang="ts">
 	import Nav from './lib/Nav.svelte'
-
 	import Steps from './lib/Steps.svelte'
-
 	import { NAV } from './lib'
 	import type { DungeonResult, Position, Room, TileId } from './lib/dungeon'
 	import { generateDungeon } from './lib/dungeon'
@@ -111,7 +109,14 @@
 		<Nav vertical data={NAV} {current}>
 			<h4>Navigation</h4>
 		</Nav>
-		<Steps vertical data={NAV} active={currentId}></Steps>
+		<!-- <Steps vertical data={NAV} active={currentId}></Steps> -->
+		<Settings
+			onGenerate={(details) => {
+				options = { ...options, ...details }
+				console.log('OnGenerate', options)
+				getNewMap()
+				openDialog()
+			}}></Settings>
 	</aside>
 </Router>
 
